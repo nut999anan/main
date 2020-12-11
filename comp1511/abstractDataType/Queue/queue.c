@@ -51,17 +51,17 @@ void queueFree(Queue q) {
 
 //add integer as a node the queue at the tail
 void queueAdd(Queue q, int item){
-   struct queueNode *newNode = createNode(item);
-  
-   if(q->tail == NULL){
-       q->head = newNode;
-       q->tail = newNode;
+   // create the new item
+    struct queueNode *addNode = createNode(item);
 
-   }else{
-       q->tail->next = newNode;
-       q->tail = newNode;
+    if(q->tail == NULL){//no item in the list
+        q->head = addNode;
+        q->tail = addNode;
 
-   }
+    }else{
+        q->tail->next = addNode;
+        q->tail = addNode;
+    }
 }
 
 
@@ -101,10 +101,10 @@ int queueSize(Queue q){
 
 //static function is only used in the file it declare
 static struct queueNode *createNode(int data){
-   struct queueNode *newNode = createNode(data);
-   newNode->data = data;
-   newNode->next = NULL;
+    struct queueNode *newNode = malloc(sizeof(struct queueNode));
+    newNode -> next = NULL;
+    newNode -> data = data;
+    return newNode;
 
-   return newNode;
 }
 
