@@ -1,0 +1,7 @@
+eg.
+typedef <original Type> <new Type name>;
+typedef struct realm *realm;
+
+In main file we not knowing what actually the new type is 
+So we just use it without knowing its mechanic.
+
