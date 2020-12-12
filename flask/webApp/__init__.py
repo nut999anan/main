@@ -26,9 +26,11 @@ def logout():
 #user
 @app.route("/user")
 def user():
-    return "<h1> user </h1>"
+    return render_template("user.html")
 
 #gallery
+# i will use the blue print to learn it 
+
 
 
 #run
