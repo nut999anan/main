@@ -1,8 +1,8 @@
 // Assignment 2 20T2 COMP1511: Castle Defense
 //
 // This program was written by YOUR-NAME-HERE (z5555555)
-// on INSERT-DATE-HERE
-//
+//Anan Mingmitpattanakul z5331054 DEC 2020
+// on INSERT-DATE-HERE/
 // Version 1.0.0 (2020-07-20): Assignment released.
 // Version 1.0.1 (2020-08-04): Changed wording in advance_enemies comment
 
