@@ -25,7 +25,7 @@ type_of(rating)
 type_of(name)
 type_of(is_published)
 
-#getting user info and print out
+#getting user info and print 
 def user_info():
     """ get user_info and print it out """
     username = input("what is your name: ")
