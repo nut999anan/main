@@ -19,15 +19,27 @@ struct player {
 // funciton 
 struct player *createPlayer(char inputName[MAX_NAME_LENGTH],struct player* inputNext);
 void printPlayers(struct player* playerList);
+struct player *insertPlayer(char inputName[MAX_NAME_LENGTH],struct player* insertPos);
+struct player *alphaInsertPlayer(char inputName[MAX_NAME_LENGTH],struct player* head);
 
 
 
 
 int main(){
-    struct player *list_head= createPlayer("nut",NULL);
-    list_head = createPlayer("milk",list_head);
-    list_head = createPlayer("num",list_head);
-    printPlayers(list_head);
+    struct player *head = alphaInsertPlayer("z",NULL);
+    head = alphaInsertPlayer("b",head);
+    head = alphaInsertPlayer("c",head);
+    head = alphaInsertPlayer("d",head);
+    head = alphaInsertPlayer("e",head);
+    head = alphaInsertPlayer("a",head);
+    head = alphaInsertPlayer("g",head);
+    head = alphaInsertPlayer("f",head);
+    printPlayers(head);
+
+
+
+    return 0;
+    // what is the return value of the main function
 }
 
 
@@ -52,4 +64,43 @@ void printPlayers(struct player* playerList){
         playerList = playerList -> next;
     }
     printf("\n");
+}
+
+
+// insert a player into a list as the next node after insertPos
+// This will not remove any node
+// Return the pointer to inserted node
+// insert player before the insert player before the insert Pos
+struct player *insertPlayer(char inputName[MAX_NAME_LENGTH],struct player *insertPos){
+    // if list is empty just create one and return head
+    struct player *insertedPlayer = createPlayer(inputName,NULL);
+    //else create then arrange the pointer 
+    // Return pointer to insertedplayer
+    // Why do we need to return the  player pointer ?
+    if(insertPos != NULL){
+        //insert after a node that exists
+        insertedPlayer->next = insertPos->next;
+        insertPos->next = insertedPlayer;
+    }
+    return insertedPlayer;    // this is for empty list
+}
+
+
+struct player *alphaInsertPlayer(char inputName[MAX_NAME_LENGTH],struct player* head){
+    struct player *previous =  NULL;
+    struct player *current = head; // for loop
+
+    while(current != NULL && strcmp(inputName,current->name) > 0){
+        previous = current; //loop stop after condition met
+        current = current->next;
+    }
+    
+
+    if ( previous == NULL ){ //previous == null when the list is empty or name come before the first name
+        struct player *insertedPlayer = createPlayer(inputName,head);
+        head = insertedPlayer;
+    }  else {
+        insertPlayer(inputName,previous);
+    }
+    return head;
 }
