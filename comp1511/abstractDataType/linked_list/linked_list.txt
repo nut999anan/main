@@ -1,0 +1,5 @@
+What is linked list 
+    a struct that contain data and pointer to another 
+    same type of struct. data list that are connected to each other
+    by pointer  head->0->0->0->NULL.It is more flexible than array, but
+    it is fragile. 

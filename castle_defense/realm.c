@@ -81,10 +81,10 @@ Realm new_realm(void) {
 
 // Return a new location created with malloc.
 static Location new_location(char *name) {
-
     // TODO: Make this create a location and return a pointer to it.
-
-    return NULL;
+    Location l = malloc(sizeof(struct location));
+    strcpy(&(l->name), name);
+    return l;
 }
 
 ////////////////////////////////////////////////////////////////////////
