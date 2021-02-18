@@ -21,8 +21,8 @@ struct player *createPlayer(char inputName[MAX_NAME_LENGTH],struct player* input
 void printPlayers(struct player* playerList);
 struct player *insertPlayer(char inputName[MAX_NAME_LENGTH],struct player* insertPos);
 struct player *alphaInsertPlayer(char inputName[MAX_NAME_LENGTH],struct player* head);
-
-
+struct player *removePlayer(char inputName[MAX_NAME_LENGTH],struct player *head);
+void clearPlayer(struct player *head);
 
 
 int main(){
@@ -32,10 +32,11 @@ int main(){
     head = alphaInsertPlayer("d",head);
     head = alphaInsertPlayer("e",head);
     head = alphaInsertPlayer("a",head);
+    head = removePlayer("e",head);
     head = alphaInsertPlayer("g",head);
     head = alphaInsertPlayer("f",head);
     printPlayers(head);
-
+    clearPlayer(head);
 
 
     return 0;
@@ -97,10 +98,45 @@ struct player *alphaInsertPlayer(char inputName[MAX_NAME_LENGTH],struct player* 
     
 
     if ( previous == NULL ){ //previous == null when the list is empty or name come before the first name
-        struct player *insertedPlayer = createPlayer(inputName,head);
-        head = insertedPlayer;
+        return createPlayer(inputName,head);
     }  else {
         insertPlayer(inputName,previous);
+        return head;
+    }
+}
+
+struct player *removePlayer(char inputName[MAX_NAME_LENGTH],struct player *head){
+    //find the remove pos and the prev
+    //3  conditions 
+        //at the head 
+        //at the tail 
+        //point to null
+    struct player *previous = NULL;
+    struct player *current = head;
+    // Keep looping until we find the matching name
+    while (current != NULL && strcmp(inputName, current->name) != 0) {
+        previous = current;
+        current = current->next;
+    }
+    if(current != NULL){
+        //change the head
+        if(current == head){
+            head = head->next;
+        } else {
+            previous -> next = current -> next;
+        }
+        free(current);
+        //not change the head
     }
     return head;
+ 
+   
+}
+
+void clearPlayer(struct player *head){
+    while(head != NULL){
+        struct player *removePos = head;
+        head = head -> next;
+        free(removePos);
+    }
 }
