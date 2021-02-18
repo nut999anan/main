@@ -1,0 +1,15 @@
+Queue => first in first out
+
+functions
+-creaet a Queue
+-Destroy a Queue
+-Add to Queue
+-Remove from the Queue
+-Count the Queue
+
+
+
+
+change
+
+what is type def ? 
