@@ -110,6 +110,7 @@ void IntListInsert(IntList L, int v)
 void IntListInsertInOrder(IntList L, int v)
 {
 	// This is INCORRECT
+	if(L == NULL)printf("Empty");
 	IntListInsert(L, v);
 
 	//what happen when there is empylist 
