@@ -1,10 +1,11 @@
 // randList.c - generate a list of random integers
 // Written by John Shepherd, July 2008
 
-#include <err.h>
+#include <errno.h>
+//#include <err.h> //for linux
 #include <stdio.h>
 #include <stdlib.h>
-#include <sysexits.h>
+// #include <sysexits.h> //what is the alternative
 #include <time.h>
 
 int main(int argc, char *argv[])

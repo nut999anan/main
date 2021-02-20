@@ -2,11 +2,11 @@
 // Written by John Shepherd, July 2008
 
 #include <assert.h>
-#include <err.h>
+//#include <err.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sysexits.h>
+//#include <sysexits.h>
 
 #include "IntList.h"
 
@@ -111,6 +111,8 @@ void IntListInsertInOrder(IntList L, int v)
 {
 	// This is INCORRECT
 	IntListInsert(L, v);
+
+	//what happen when there is empylist 
 }
 
 /**
