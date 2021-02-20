@@ -109,11 +109,24 @@ void IntListInsert(IntList L, int v)
  */
 void IntListInsertInOrder(IntList L, int v)
 {
-	// This is INCORRECT
-	if(L == NULL)printf("Empty");
-	IntListInsert(L, v);
+	struct IntListNode *current = L->first;
+	struct IntListNode *prev = NULL;
+	
+	while(current != NULL && v > current->data){
+		prev = current;
+		current = current->data;
+	}
+	//first 
+	//last
+	//middle
+	if(prev == NULL){
+		IntListInsert(L,v);
+	} else if (current == NULL){
+		IntListInsert(L,v);
+	} else{
+		IntListInsert(L,v);
+	}
 
-	//what happen when there is empylist 
 }
 
 /**
